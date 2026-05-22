@@ -1,0 +1,41 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.cyberfilo/musicmind-mcp",
+  "description": "MCP server giving Claude deep, intelligent access to Apple Music — taste profiling, adaptive recommendations, audio analysis, and smart playlist generation. Caches your library/listening history locally and builds a multi-dimensional taste profile (genres, artists, audio traits) to score new music against your actual preferences instead of popularity.",
+  "version": "2.20",
+  "repository": {
+    "url": "https://github.com/Cyberfilo/musicmind-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://github.com/Cyberfilo/musicmind-mcp",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "musicmind-mcp",
+      "version": "2.20",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "APPLE_MUSIC_DEVELOPER_TOKEN",
+          "description": "Apple Music API developer token (JWT signed with your team's MusicKit private key). See README for token generation.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "APPLE_MUSIC_USER_TOKEN",
+          "description": "Apple Music user token obtained via MusicKit JS / Swift on a logged-in device. Scopes the server to a single user's library and listening history.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "MUSICMIND_CACHE_PATH",
+          "description": "Filesystem path for the local SQLite cache. Defaults to $HOME/.musicmind/cache.db.",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}
