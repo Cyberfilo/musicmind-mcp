@@ -322,6 +322,3 @@ uv run ruff check src/ --fix  # Auto-fix lint issues
 
 ---
 
-## License
-
-MIT
